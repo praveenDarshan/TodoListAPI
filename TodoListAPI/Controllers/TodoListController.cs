@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TodoListAPI.Controllers
 {
-    public class TodoListController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TodoListController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult GetAllLists()
         {
-            return View();
+            return Ok("Success");
         }
     }
 }
